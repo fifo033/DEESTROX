@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Code, Smartphone, Zap, Bot, Phone, MapPin, Globe, ChevronDown } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Code, Smartphone, Zap, Bot, Palette, Phone, MapPin, Globe, ChevronDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,9 +21,9 @@ const translations = {
     hero_title_1: "We Build Tech Solutions That Drive Your Business Forward",
     hero_cta_1: "Get Started",
     hero_title_2: "Why Choose Us?",
-    hero_point_1: "⚡ Fast Delivery",
-    hero_point_2: "💰 Transparent Pricing",
-    hero_point_3: "🔧 Custom Solutions",
+    hero_point_1: `At Deestrox, we're built on ambition and driven by innovation. Passionate about AI, we craft tailored tech solutions with full dedication to your needs. Trust us to turn your vision into success — your growth is our mission.`,
+    hero_point_2: `We don't just follow trends — we create them. And we don't stop until your business thrives. Give us the chance — we'll earn your trust.`,
+    hero_point_3: `We're dreamers, doers, and tech lovers. Got a goal? We're all in. Big ideas, bold moves, and your success — that's our thing. Let's build something awesome together!`,
     services_title: "Our Services",
     service_mobile: "Mobile Development",
     service_mobile_desc: "Native iOS & Android apps with modern UI/UX",
@@ -33,6 +33,8 @@ const translations = {
     service_mvp_desc: "Rapid prototyping with guaranteed delivery timeline",
     service_ai: "AI Agent Service",
     service_ai_desc: "Custom AI solutions and chatbot integrations",
+    service_design: "Design",
+    service_design_desc: "Creative UI/UX and branding for web & mobile",
     contact_title: "Contact Us",
     contact_name: "Name",
     contact_email: "Email",
@@ -48,9 +50,9 @@ const translations = {
     hero_title_1: "Мы создаем IT-решения, которые развивают ваш бизнес",
     hero_cta_1: "Начать",
     hero_title_2: "Почему выбирают нас?",
-    hero_point_1: "⚡ Быстрая доставка",
-    hero_point_2: "💰 Прозрачные цены",
-    hero_point_3: "🔧 Индивидуальные решения",
+    hero_point_1: `В Deestrox нас движет амбиции и инновации. Мы увлечены искусственным интеллектом и создаём индивидуальные IT-решения, полностью ориентированные на ваши задачи. Доверьтесь нам — мы превратим вашу идею в успех, ведь ваш рост — наша миссия.`,
+    hero_point_2: `Мы не просто следуем трендам — мы их создаём. И не останавливаемся, пока ваш бизнес не начнёт процветать. Дайте нам шанс — и мы заслужим ваше доверие.`,
+    hero_point_3: `Мы — мечтатели, созидатели и фанаты технологий. Есть цель? Мы с вами! Большие идеи, смелые решения и ваш успех — вот что для нас важно. Давайте строить будущее вместе!`,
     services_title: "Наши услуги",
     service_mobile: "Мобильная разработка",
     service_mobile_desc: "Нативные iOS и Android приложения с современным UI/UX",
@@ -60,6 +62,8 @@ const translations = {
     service_mvp_desc: "Быстрое прототипирование с гарантированными сроками",
     service_ai: "AI агенты",
     service_ai_desc: "Кастомные AI решения и интеграция чат-ботов",
+    service_design: "Дизайн",
+    service_design_desc: "Креативный UI/UX и брендинг для веба и мобильных приложений",
     contact_title: "Связаться с нами",
     contact_name: "Имя",
     contact_email: "Email",
@@ -75,9 +79,9 @@ const translations = {
     hero_title_1: "نحن نبني الحلول التقنية التي تدفع عملك إلى الأمام",
     hero_cta_1: "ابدأ الآن",
     hero_title_2: "لماذا تختارنا؟",
-    hero_point_1: "⚡ التسليم السريع",
-    hero_point_2: "💰 أسعار شفافة",
-    hero_point_3: "🔧 حلول مخصصة",
+    hero_point_1: `في ديستروكس، نبني طموحنا على الابتكار ويدفعنا الشغف بالذكاء الاصطناعي. نصنع حلولاً تقنية مخصصة بكل التزام لاحتياجاتك. ثق بنا لنحوّل رؤيتك إلى نجاح — نمّوك هو مهمتنا.`,
+    hero_point_2: `لا نتبع الاتجاهات فقط — بل نصنعها. ولا نتوقف حتى يزدهر عملك. امنحنا الفرصة — وسنكسب ثقتك.`,
+    hero_point_3: `نحن حالمون، منفذون، وعشاق للتقنية. لديك هدف؟ نحن معك. الأفكار الكبيرة، الخطوات الجريئة، ونجاحك — هذا هو شغفنا. لنصنع شيئاً رائعاً معاً!`,
     services_title: "خدماتنا",
     service_mobile: "تطوير التطبيقات المحمولة",
     service_mobile_desc: "تطبيقات iOS و Android الأصلية مع واجهة مستخدم حديثة",
@@ -87,6 +91,8 @@ const translations = {
     service_mvp_desc: "نماذج أولية سريعة مع جدول زمني مضمون للتسليم",
     service_ai: "خدمة وكيل الذكاء الاصطناعي",
     service_ai_desc: "حلول الذكاء الاصطناعي المخصصة وتكامل الشات بوت",
+    service_design: "تصميم",
+    service_design_desc: "تصميم واجهات وتجارب مستخدم إبداعية للويب والجوال",
     contact_title: "اتصل بنا",
     contact_name: "الاسم",
     contact_email: "البريد الإلكتروني",
@@ -123,6 +129,7 @@ const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [formData, setFormData] = useState({ name: '', email: '', request: '' });
   const { toast } = useToast();
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   const t = translations[language];
 
@@ -134,10 +141,10 @@ const Index = () => {
     {
       title: t.hero_title_2,
       content: (
-        <div className="mt-6 space-y-4">
-          <div className="text-lg">{t.hero_point_1}</div>
-          <div className="text-lg">{t.hero_point_2}</div>
-          <div className="text-lg">{t.hero_point_3}</div>
+        <div className="mt-6 space-y-6 text-lg text-white text-left md:text-center max-w-3xl mx-auto">
+          <p>{t.hero_point_1}</p>
+          <p>{t.hero_point_2}</p>
+          <p>{t.hero_point_3}</p>
         </div>
       )
     }
@@ -147,15 +154,17 @@ const Index = () => {
     { icon: Smartphone, title: t.service_mobile, desc: t.service_mobile_desc },
     { icon: Code, title: t.service_web, desc: t.service_web_desc },
     { icon: Zap, title: t.service_mvp, desc: t.service_mvp_desc },
-    { icon: Bot, title: t.service_ai, desc: t.service_ai_desc }
+    { icon: Bot, title: t.service_ai, desc: t.service_ai_desc },
+    { icon: Palette, title: t.service_design, desc: t.service_design_desc },
   ];
 
   useEffect(() => {
+    if (hasInteracted) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, [slides.length, hasInteracted]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -236,7 +245,10 @@ const Index = () => {
       </nav>
 
       {/* Hero Slider */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section
+        className="relative h-screen flex items-center justify-center overflow-hidden"
+        onMouseDown={() => setHasInteracted(true)}
+      >
         <HeroBackground slideIndex={currentSlide} />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-purple-900/50"></div>
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
