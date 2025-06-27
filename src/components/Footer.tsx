@@ -9,7 +9,7 @@ export default function Footer({ t }: { t: any }) {
             <p className="text-gray-400">© 2024 Deestrox. {t.footer_rights}</p>
           </div>
           <div className="flex flex-col items-center space-y-4">
-            <div className="text-white font-medium">hello@deestrox.com</div>
+            <div className="text-white font-medium">hello@deestrox.ru</div>
             <div className="flex items-center space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-slate-800" aria-label="WhatsApp">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">

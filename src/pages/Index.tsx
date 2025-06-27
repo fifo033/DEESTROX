@@ -42,7 +42,8 @@ const translations = {
     contact_request: "Tell us about your project",
     contact_submit: "Send Message",
     contact_success: "Message sent successfully!",
-    footer_rights: "All rights reserved."
+    footer_rights: "All rights reserved.",
+    contact_file_label: "Attach a file (optional):"
   },
   ru: {
     nav_projects: "Проекты",
@@ -71,7 +72,8 @@ const translations = {
     contact_request: "Расскажите о вашем проекте",
     contact_submit: "Отправить сообщение",
     contact_success: "Сообщение успешно отправлено!",
-    footer_rights: "Все права защищены."
+    footer_rights: "Все права защищены.",
+    contact_file_label: "Прикрепить файл (необязательно):"
   },
   ar: {
     nav_projects: "المشاريع",
@@ -100,7 +102,8 @@ const translations = {
     contact_request: "أخبرنا عن مشروعك",
     contact_submit: "إرسال الرسالة",
     contact_success: "تم إرسال الرسالة بنجاح!",
-    footer_rights: "جميع الحقوق محفوظة."
+    footer_rights: "جميع الحقوق محفوظة.",
+    contact_file_label: "أرفق ملفاً (اختياري):"
   }
 };
 
@@ -129,6 +132,7 @@ const Index = () => {
   const [language, setLanguage] = useState<'en' | 'ru' | 'ar'>('en');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [formData, setFormData] = useState({ name: '', email: '', request: '' });
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const { toast } = useToast();
   const [hasInteracted, setHasInteracted] = useState(false);
   const navigate = useNavigate();
@@ -138,7 +142,7 @@ const Index = () => {
   const slides = [
     {
       title: t.hero_title_1,
-      content: <Button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">{t.hero_cta_1}</Button>
+      content: <Button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg" onClick={() => scrollToSection('services')}>{t.hero_cta_1}</Button>
     },
     {
       title: t.hero_title_2,
@@ -334,6 +338,17 @@ const Index = () => {
                 className="bg-slate-800 border-slate-600 text-white placeholder-gray-400 min-h-32"
                 required
               />
+              <div>
+                <label className="block text-gray-300 mb-2">{t.contact_file_label}</label>
+                <input
+                  type="file"
+                  className="block w-full text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700"
+                  onChange={e => setSelectedFile(e.target.files && e.target.files[0] ? e.target.files[0] : null)}
+                />
+                {selectedFile && (
+                  <div className="mt-2 text-sm text-gray-400">Selected file: {selectedFile.name}</div>
+                )}
+              </div>
               <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg">
                 {t.contact_submit}
               </Button>
