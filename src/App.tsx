@@ -18,28 +18,28 @@ const App = () => {
     <>
       {!splashDone && <LogoSplash onFinish={() => setSplashDone(true)} />}
       {splashDone && (
-        <QueryClientProvider client={queryClient}>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/projects" element={<Projects />} />
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/projects" element={<Projects />} />
                 <Route path="/services/mobile" element={<ServicePage />} />
                 <Route path="/services/web" element={<ServicePage />} />
                 <Route path="/services/mvp" element={<ServicePage />} />
                 <Route path="/services/ai" element={<ServicePage />} />
                 <Route path="/services/design" element={<ServicePage />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </BrowserRouter>
-          </TooltipProvider>
-        </QueryClientProvider>
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
       )}
     </>
-  );
+);
 };
 
 export default App;

@@ -114,91 +114,86 @@ const languageOptions = [
   }
 ];
 
+const generalDescription = {
+  en: "Message Aggregator is an advanced platform designed to centralize and streamline communication with your clients across multiple social networks. With a unified interface, powerful AI assistant, customizable tags, and flexible chat management tools, it makes it easy to handle all your customer conversations in one place. The platform supports dynamic chat indicators, multilingual support, and a fully customizable AI context, ensuring efficient, organized, and personalized communication for your business.",
+  ru: "Message Aggregator — это современная платформа для централизованного и эффективного общения с клиентами из разных социальных сетей. Единый интерфейс, мощный AI-ассистент, настраиваемые теги и гибкие инструменты управления чатами позволяют легко вести все диалоги в одном окне. Платформа поддерживает динамические индикаторы чатов, многоязычность и полностью настраиваемый контекст AI, обеспечивая эффективное, организованное и персонализированное взаимодействие с клиентами.",
+  ar: "Message Aggregator هو منصة متقدمة تهدف إلى توحيد وتسهيل التواصل مع عملائك عبر شبكات التواصل الاجتماعي المختلفة. بواجهة موحدة، ومساعد ذكي قوي، وعلامات مخصصة، وأدوات إدارة دردشات مرنة، يمكنك إدارة جميع محادثات العملاء في مكان واحد بسهولة. تدعم المنصة مؤشرات دردشة ديناميكية، وتعدد اللغات، وسياق ذكاء اصطناعي قابل للتخصيص بالكامل، مما يضمن تواصلاً فعالاً ومنظماً وشخصياً لأعمالك."
+};
+
+const projectScreenshots = [
+  {
+    src: '/lovable-uploads/aggregator-cover.png',
+    explanations: {
+      en: generalDescription.en,
+      ru: generalDescription.ru,
+      ar: generalDescription.ar
+    }
+  },
+  {
+    src: '/lovable-uploads/Screenshot1.png',
+    explanations: {
+      en: "This is the main page of the Message Aggregator. It provides a comprehensive overview and access to nearly all the platform's features, including chat management, message previews, and quick navigation between conversations.",
+      ru: "Это главная страница Message Aggregator. Здесь представлен полный обзор и доступ практически ко всем функциям платформы: управление чатами, предпросмотр сообщений и быстрая навигация между диалогами.",
+      ar: "هذه هي الصفحة الرئيسية لمنصة Message Aggregator. توفر نظرة شاملة وإمكانية الوصول إلى معظم ميزات النظام، بما في ذلك إدارة الدردشات، معاينة الرسائل، والتنقل السريع بين المحادثات."
+    }
+  },
+  {
+    src: '/lovable-uploads/Screenshot2.png',
+    explanations: {
+      en: "This screenshot demonstrates the chat interface of the Message Aggregator. It showcases a typical conversation between a customer and our AI agent, including automated responses to product inquiries and return policy questions.",
+      ru: "На этом скриншоте показан интерфейс чата Message Aggregator. Здесь представлен пример диалога между клиентом и нашим AI-агентом, включая автоматические ответы на вопросы о товарах и политике возврата.",
+      ar: "توضح هذه الصورة واجهة الدردشة في منصة Message Aggregator. تعرض مثالاً على محادثة بين العميل والوكيل الذكي (AI)، بما في ذلك الردود التلقائية على استفسارات المنتجات وسياسة الإرجاع."
+    }
+  },
+  {
+    src: '/lovable-uploads/Screenshot3.png',
+    explanations: {
+      en: "This top bar above the chat list provides dynamic indicators about chat activity and status, such as the total number of chats, those awaiting a response, and active AI-powered conversations. The gear icon on the right leads to the AI customization page, which will be showcased in a separate screenshot.",
+      ru: "Эта верхняя панель над списком чатов отображает динамические индикаторы активности и статуса чатов: общее количество чатов, ожидающие ответа и активные чаты с AI. Значок шестерёнки справа ведёт на страницу настройки AI, которую мы покажем отдельно.",
+      ar: "يعرض هذا الشريط العلوي فوق قائمة الدردشات مؤشرات ديناميكية حول حالة الدردشات، مثل العدد الإجمالي، الدردشات التي تنتظر الرد، والدردشات المدعومة بالذكاء الاصطناعي. أيقونة الترس على اليمين تفتح صفحة تخصيص الذكاء الاصطناعي، والتي سنعرضها في لقطة شاشة أخرى."
+    }
+  },
+  {
+    src: '/lovable-uploads/Screenshot4.png',
+    explanations: {
+      en: "This screenshot highlights the tags feature. You can add customizable tags to any chat, making it easy to organize conversations and categorize them according to your needs (e.g., 'problem unsolved,' 'VIP customer').",
+      ru: "На этом скриншоте показана функция тегов. Вы можете добавлять настраиваемые теги к любому чату, чтобы удобно организовывать и классифицировать диалоги по своим критериям (например, 'проблема не решена', 'VIP-клиент').",
+      ar: "توضح هذه الصورة ميزة العلامات (Tags). يمكنك إضافة علامات مخصصة لأي محادثة، مما يساعدك على تنظيم الدردشات وتصنيفها حسب احتياجاتك (مثل: 'مشكلة غير محلولة'، 'عميل VIP')."
+    }
+  },
+  {
+    src: '/lovable-uploads/Screenshot5.png',
+    explanations: {
+      en: "This screenshot demonstrates how the Message Aggregator brings together clients from multiple social platforms, allowing you to manage all conversations in one place. The search function at the top makes it easy to find any chat by typing a name, last message, or a specific tag.",
+      ru: "На этом скриншоте показано, как Message Aggregator объединяет клиентов из разных социальных платформ, позволяя управлять всеми диалогами в одном окне. Функция поиска вверху помогает быстро найти нужный чат по имени, последнему сообщению или определённому тегу.",
+      ar: "توضح هذه الصورة كيف يجمع Message Aggregator العملاء من عدة تطبيقات اجتماعية في مكان واحد، مما يتيح لك إدارة جميع المحادثات بسهولة. تتيح لك وظيفة البحث في الأعلى العثور على أي دردشة عن طريق كتابة الاسم أو آخر رسالة أو علامة محددة."
+    }
+  },
+  {
+    src: '/lovable-uploads/Screenshot6.png',
+    explanations: {
+      en: "This screenshot shows how you can easily enable or disable the AI assistant for any chat using a simple toggle switch. You can also delete a chat with a single click using the trash icon.",
+      ru: "На этом скриншоте видно, как легко включать или отключать AI-ассистента для любого чата с помощью простого переключателя. Также можно удалить чат одним нажатием на значок корзины.",
+      ar: "توضح هذه الصورة كيف يمكنك تفعيل أو إيقاف الذكاء الاصطناعي لأي محادثة بسهولة من خلال زر التبديل، كما يمكنك حذف الدردشة بنقرة واحدة على أيقونة الحذف."
+    }
+  },
+  {
+    src: '/lovable-uploads/Screenshot7.png',
+    explanations: {
+      en: "This screenshot demonstrates the AI context editor, where you can customize and train your AI assistant to respond according to your specific needs. The interface allows you to define detailed instructions and add frequently asked questions (FAQs), making the AI highly adaptable and efficient for your business.",
+      ru: "На этом скриншоте показан редактор контекста для AI, где вы можете настраивать и обучать ассистента под свои задачи. Интерфейс позволяет задавать подробные инструкции и добавлять часто задаваемые вопросы (FAQ), что делает AI максимально гибким и эффективным для вашего бизнеса.",
+      ar: "توضح هذه الصورة محرر سياق الذكاء الاصطناعي، حيث يمكنك تخصيص وتدريب المساعد الذكي حسب احتياجاتك. تتيح لك الواجهة إضافة تعليمات مفصلة وأسئلة شائعة (FAQ)، مما يجعل الذكاء الاصطناعي قابلاً للتخصيص وفعالاً لأعمالك."
+    }
+  }
+];
+
 const Projects = () => {
   const [language, setLanguage] = useState<'en' | 'ru' | 'ar'>('en');
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [modalOpen, setModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [zoomed, setZoomed] = useState(false);
 
   const t = translations[language];
-
-  const projects = [
-    {
-      id: 1,
-      name: t.project_1_name,
-      desc: t.project_1_desc,
-      fullDesc: t.project_1_full,
-      images: [
-        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 2,
-      name: t.project_2_name,
-      desc: t.project_2_desc,
-      fullDesc: t.project_2_full,
-      images: [
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 3,
-      name: t.project_3_name,
-      desc: t.project_3_desc,
-      fullDesc: t.project_3_full,
-      images: [
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 4,
-      name: t.project_4_name,
-      desc: t.project_4_desc,
-      fullDesc: t.project_4_full,
-      images: [
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 5,
-      name: t.project_5_name,
-      desc: t.project_5_desc,
-      fullDesc: t.project_5_full,
-      images: [
-        "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 6,
-      name: t.project_6_name,
-      desc: t.project_6_desc,
-      fullDesc: t.project_6_full,
-      images: [
-        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop"
-      ]
-    }
-  ];
-
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const nextImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) => (prev + 1) % selectedProject.images.length);
-    }
-  };
-
-  const prevImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length);
-    }
-  };
 
   const getCurrentLanguageOption = () => {
     return languageOptions.find(option => option.code === language) || languageOptions[0];
@@ -255,103 +250,100 @@ const Projects = () => {
       </nav>
 
       {/* Projects Header */}
-      <section className="pt-32 pb-16 text-center">
+      <section className="pt-32 pb-8 text-center">
         <div className="container mx-auto px-6">
           <h1 className="text-5xl font-bold text-white mb-4">{t.projects_title}</h1>
-          <p className="text-xl text-gray-300">{t.projects_subtitle}</p>
+          <p className="text-xl text-gray-300 mb-8">{t.projects_subtitle}</p>
         </div>
       </section>
 
-      {/* Projects Grid */}
+      {/* Project Grid (compact, like services) */}
       <section className="pb-20">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                className="bg-slate-800 rounded-xl overflow-hidden hover:bg-slate-700 transition-all duration-300 hover:scale-105 cursor-pointer group"
-                onClick={() => {
-                  setSelectedProject(project);
-                  setCurrentImageIndex(0);
-                }}
-              >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={project.images[0]}
-                    alt={project.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-3">{project.name}</h3>
-                  <p className="text-gray-300 mb-4">{project.desc}</p>
-                </div>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div
+              className="bg-slate-700 p-8 rounded-xl hover:bg-slate-600 transition-all duration-300 hover:scale-105 group cursor-pointer flex flex-col items-center"
+              onClick={() => { setModalOpen(true); setCurrentImageIndex(0); }}
+            >
+              <img
+                src={projectScreenshots[0].src}
+                alt="Project Screenshot 1"
+                className="w-20 h-20 object-cover rounded-lg mb-4 group-hover:scale-110 transition-transform duration-300"
+              />
+              <h3 className="text-xl font-semibold text-white mb-2 text-center">Message Aggregator</h3>
+              <p className="text-gray-300 text-center text-sm line-clamp-3">{generalDescription[language]}</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Project Modal */}
-      {selectedProject && (
+      {modalOpen && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
           <div className="bg-slate-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-white">{selectedProject.name}</h2>
+                <h2 className="text-2xl font-bold text-white">Message Aggregator</h2>
                 <button
-                  onClick={() => setSelectedProject(null)}
+                  onClick={() => setModalOpen(false)}
                   className="text-gray-400 hover:text-white"
                 >
                   <X className="w-6 h-6" />
                 </button>
               </div>
 
-              {/* Image Carousel */}
+              {/* Screenshot Carousel */}
               <div className="relative mb-6">
-                <div className="aspect-video overflow-hidden rounded-lg">
+                <div className="aspect-video overflow-hidden rounded-lg flex items-center justify-center bg-slate-900">
                   <img
-                    src={selectedProject.images[currentImageIndex]}
-                    alt={selectedProject.name}
-                    className="w-full h-full object-cover"
+                    src={projectScreenshots[currentImageIndex].src}
+                    alt={`Project Screenshot ${currentImageIndex + 1}`}
+                    className="max-h-[400px] w-auto object-contain cursor-zoom-in"
+                    onClick={() => setZoomed(true)}
                   />
                 </div>
-                
-                {selectedProject.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
-                    >
-                      <ChevronLeft className="w-6 h-6" />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
-                    >
-                      <ChevronRight className="w-6 h-6" />
-                    </button>
-                  </>
-                )}
-              </div>
-
-              <p className="text-gray-300 mb-6 leading-relaxed">{selectedProject.fullDesc}</p>
-
-              <div className="flex justify-between items-center">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  {t.view_demo}
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => setSelectedProject(null)}
-                  className="border-slate-600 text-white hover:bg-slate-700"
-                >
-                  {t.close}
-                </Button>
+                {/* Carousel Controls */}
+                <div className="flex justify-between items-center mt-4">
+                  <button
+                    onClick={() => setCurrentImageIndex((currentImageIndex - 1 + projectScreenshots.length) % projectScreenshots.length)}
+                    className="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <span className="text-gray-300">{currentImageIndex + 1} / {projectScreenshots.length}</span>
+                  <button
+                    onClick={() => setCurrentImageIndex((currentImageIndex + 1) % projectScreenshots.length)}
+                    className="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </div>
+                {/* Explanation */}
+                <div className="mt-6 text-lg text-gray-200 text-center">
+                  {projectScreenshots[currentImageIndex].explanations[language]}
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Zoom Overlay */}
+      {zoomed && (
+        <div className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center" onClick={() => setZoomed(false)}>
+          <button
+            className="absolute top-6 right-6 text-white bg-slate-800/80 rounded-full p-2 hover:bg-slate-700 z-[101]"
+            onClick={e => { e.stopPropagation(); setZoomed(false); }}
+            aria-label="Close zoom"
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <img
+            src={projectScreenshots[currentImageIndex].src}
+            alt={`Zoomed Project Screenshot ${currentImageIndex + 1}`}
+            className="max-h-[90vh] max-w-[95vw] object-contain shadow-2xl border-4 border-slate-700 rounded-xl"
+            onClick={e => e.stopPropagation()}
+          />
         </div>
       )}
     </div>
