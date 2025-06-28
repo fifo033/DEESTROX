@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Code, Smartphone, Zap, Bot, Palette, Phone, MapPin, Globe, ChevronDown } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Code, Smartphone, Zap, Bot, Palette, Phone, MapPin, Globe, ChevronDown, Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -135,6 +135,7 @@ const Index = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const { toast } = useToast();
   const [hasInteracted, setHasInteracted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const t = translations[language];
@@ -207,6 +208,7 @@ const Index = () => {
               <img src="/lovable-uploads/deestrox-logo.png" alt="Deestrox Logo" className="h-10 w-auto" />
             </Link>
             
+            {/* Desktop nav */}
             <div className="hidden md:flex items-center space-x-8">
               <Link 
                 to="/projects" 
@@ -227,7 +229,14 @@ const Index = () => {
                 {t.nav_contact}
               </button>
             </div>
-
+            {/* Mobile Hamburger */}
+            <button
+              className="md:hidden flex items-center text-white focus:outline-none"
+              onClick={() => setMobileMenuOpen(true)}
+              aria-label="Open menu"
+            >
+              <Menu className="w-8 h-8" />
+            </button>
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center justify-center space-x-2 px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors focus:outline-none text-white">
                 <img 
@@ -256,6 +265,88 @@ const Index = () => {
             </DropdownMenu>
           </div>
         </div>
+        {/* Mobile Menu Drawer */}
+        {mobileMenuOpen && (
+          <div
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              background: 'rgba(15,23,42,0.85)', // slate-900 with opacity
+              zIndex: 9999,
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'stretch',
+            }}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <div
+              className="w-72 max-w-full h-full shadow-2xl rounded-r-2xl bg-slate-800 animate-slideIn flex flex-col justify-between p-8"
+              style={{ boxShadow: '4px 0 32px 0 rgba(0,0,0,0.25)' }}
+              onClick={e => e.stopPropagation()}
+            >
+              <div>
+                <div className="flex justify-end mb-8">
+                  <button
+                    className="text-gray-300 hover:text-white focus:outline-none"
+                    style={{ fontSize: 32 }}
+                    onClick={() => setMobileMenuOpen(false)}
+                    aria-label="Close menu"
+                  >
+                    <X />
+                  </button>
+                </div>
+                <nav className="flex flex-col gap-6">
+                  <Link
+                    to="/projects"
+                    className="text-lg font-semibold text-gray-100 hover:text-blue-400 transition-colors px-2 py-1 rounded"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {t.nav_projects}
+                  </Link>
+                  <button
+                    className="text-lg font-semibold text-gray-100 hover:text-blue-400 transition-colors px-2 py-1 rounded text-left"
+                    onClick={() => { scrollToSection('services'); setMobileMenuOpen(false); }}
+                  >
+                    {t.nav_services}
+                  </button>
+                  <button
+                    className="text-lg font-semibold text-gray-100 hover:text-blue-400 transition-colors px-2 py-1 rounded text-left"
+                    onClick={() => { scrollToSection('contact'); setMobileMenuOpen(false); }}
+                  >
+                    {t.nav_contact}
+                  </button>
+                </nav>
+              </div>
+              <div className="mt-12 pt-6 border-t border-slate-700">
+                <div className="text-gray-400 mb-3 text-sm font-medium">Language</div>
+                <div className="flex flex-col gap-3">
+                  {languageOptions.map((option) => (
+                    <button
+                      key={option.code}
+                      onClick={() => { setLanguage(option.code as 'en' | 'ru' | 'ar'); setMobileMenuOpen(false); }}
+                      className="flex items-center space-x-3 px-2 py-2 rounded hover:bg-slate-700 w-full text-left"
+                    >
+                      <img src={option.flag} alt={option.label} className="w-6 h-4 object-cover rounded-sm" />
+                      <span className="text-base font-medium text-white">{option.label}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <style>{`
+              @keyframes slideIn {
+                from { transform: translateX(-100%); }
+                to { transform: translateX(0); }
+              }
+              .animate-slideIn {
+                animation: slideIn 0.35s cubic-bezier(0.4,0,0.2,1);
+              }
+            `}</style>
+          </div>
+        )}
       </nav>
 
       {/* Hero Slider */}
