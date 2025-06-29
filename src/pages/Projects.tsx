@@ -122,7 +122,7 @@ const generalDescription = {
 
 const projectScreenshots = [
   {
-    src: '/lovable-uploads/aggregator-cover.png',
+    src: '/lovable-uploads/messege aggregator/aggregator-cover.png',
     explanations: {
       en: generalDescription.en,
       ru: generalDescription.ru,
@@ -130,7 +130,7 @@ const projectScreenshots = [
     }
   },
   {
-    src: '/lovable-uploads/Screenshot1.png',
+    src: '/lovable-uploads/messege aggregator/Screenshot1.png',
     explanations: {
       en: "This is the main page of the Message Aggregator. It provides a comprehensive overview and access to nearly all the platform's features, including chat management, message previews, and quick navigation between conversations.",
       ru: "Это главная страница Message Aggregator. Здесь представлен полный обзор и доступ практически ко всем функциям платформы: управление чатами, предпросмотр сообщений и быстрая навигация между диалогами.",
@@ -138,7 +138,7 @@ const projectScreenshots = [
     }
   },
   {
-    src: '/lovable-uploads/Screenshot2.png',
+    src: '/lovable-uploads/messege aggregator/Screenshot2.png',
     explanations: {
       en: "This screenshot demonstrates the chat interface of the Message Aggregator. It showcases a typical conversation between a customer and our AI agent, including automated responses to product inquiries and return policy questions.",
       ru: "На этом скриншоте показан интерфейс чата Message Aggregator. Здесь представлен пример диалога между клиентом и нашим AI-агентом, включая автоматические ответы на вопросы о товарах и политике возврата.",
@@ -146,7 +146,7 @@ const projectScreenshots = [
     }
   },
   {
-    src: '/lovable-uploads/Screenshot3.png',
+    src: '/lovable-uploads/messege aggregator/Screenshot3.png',
     explanations: {
       en: "This top bar above the chat list provides dynamic indicators about chat activity and status, such as the total number of chats, those awaiting a response, and active AI-powered conversations. The gear icon on the right leads to the AI customization page, which will be showcased in a separate screenshot.",
       ru: "Эта верхняя панель над списком чатов отображает динамические индикаторы активности и статуса чатов: общее количество чатов, ожидающие ответа и активные чаты с AI. Значок шестерёнки справа ведёт на страницу настройки AI, которую мы покажем отдельно.",
@@ -154,7 +154,7 @@ const projectScreenshots = [
     }
   },
   {
-    src: '/lovable-uploads/Screenshot4.png',
+    src: '/lovable-uploads/messege aggregator/Screenshot4.png',
     explanations: {
       en: "This screenshot highlights the tags feature. You can add customizable tags to any chat, making it easy to organize conversations and categorize them according to your needs (e.g., 'problem unsolved,' 'VIP customer').",
       ru: "На этом скриншоте показана функция тегов. Вы можете добавлять настраиваемые теги к любому чату, чтобы удобно организовывать и классифицировать диалоги по своим критериям (например, 'проблема не решена', 'VIP-клиент').",
@@ -162,7 +162,7 @@ const projectScreenshots = [
     }
   },
   {
-    src: '/lovable-uploads/Screenshot5.png',
+    src: '/lovable-uploads/messege aggregator/Screenshot5.png',
     explanations: {
       en: "This screenshot demonstrates how the Message Aggregator brings together clients from multiple social platforms, allowing you to manage all conversations in one place. The search function at the top makes it easy to find any chat by typing a name, last message, or a specific tag.",
       ru: "На этом скриншоте показано, как Message Aggregator объединяет клиентов из разных социальных платформ, позволяя управлять всеми диалогами в одном окне. Функция поиска вверху помогает быстро найти нужный чат по имени, последнему сообщению или определённому тегу.",
@@ -170,7 +170,7 @@ const projectScreenshots = [
     }
   },
   {
-    src: '/lovable-uploads/Screenshot6.png',
+    src: '/lovable-uploads/messege aggregator/Screenshot6.png',
     explanations: {
       en: "This screenshot shows how you can easily enable or disable the AI assistant for any chat using a simple toggle switch. You can also delete a chat with a single click using the trash icon.",
       ru: "На этом скриншоте видно, как легко включать или отключать AI-ассистента для любого чата с помощью простого переключателя. Также можно удалить чат одним нажатием на значок корзины.",
@@ -178,7 +178,7 @@ const projectScreenshots = [
     }
   },
   {
-    src: '/lovable-uploads/Screenshot7.png',
+    src: '/lovable-uploads/messege aggregator/Screenshot7.png',
     explanations: {
       en: "This screenshot demonstrates the AI context editor, where you can customize and train your AI assistant to respond according to your specific needs. The interface allows you to define detailed instructions and add frequently asked questions (FAQs), making the AI highly adaptable and efficient for your business.",
       ru: "На этом скриншоте показан редактор контекста для AI, где вы можете настраивать и обучать ассистента под свои задачи. Интерфейс позволяет задавать подробные инструкции и добавлять часто задаваемые вопросы (FAQ), что делает AI максимально гибким и эффективным для вашего бизнеса.",
