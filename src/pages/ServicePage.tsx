@@ -25,7 +25,7 @@ export default function ServicePage() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-2">
-              <img src="/lovable-uploads/deestrox-logo.png" alt="Deestrox Logo" className="h-10 w-auto" />
+              <img src="/lovable-uploads/deestrox-logo.svg" alt="Deestrox Logo" className="h-10 w-auto" />
             </Link>
             <div className="hidden md:flex items-center space-x-8">
               <Link to="/projects" className="text-gray-300 hover:text-white transition-colors">Projects</Link>

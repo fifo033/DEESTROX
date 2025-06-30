@@ -51,7 +51,7 @@ export default function LogoSplash({ onFinish }: { onFinish: () => void }) {
           }}
         >
           <img
-            src="/lovable-uploads/deestrox-logo.png"
+            src="/lovable-uploads/deestrox-logo.svg"
             alt="Deestrox Logo D"
             style={{
               height: 80,
@@ -72,7 +72,7 @@ export default function LogoSplash({ onFinish }: { onFinish: () => void }) {
           }}
         >
           <img
-            src="/lovable-uploads/deestrox-logo.png"
+            src="/lovable-uploads/deestrox-logo.svg"
             alt="Deestrox Logo Rest"
             style={{
               height: 80,

@@ -225,7 +225,7 @@ const Index = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-2">
-              <img src="/lovable-uploads/deestrox-logo.png" alt="Deestrox Logo" className="h-10 w-auto" />
+              <img src="/lovable-uploads/deestrox-logo.svg" alt="Deestrox Logo" className="h-10 w-auto" />
             </Link>
             
             {/* Desktop nav */}
@@ -376,52 +376,26 @@ const Index = () => {
       >
         <HeroBackground slideIndex={currentSlide} />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-purple-900/50"></div>
-        {currentSlide === 0 ? (
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl mx-auto px-6">
-            {/* Text Content */}
-            <div className="flex-1 flex flex-col items-start justify-center md:pr-8 text-left w-full">
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-                {slides[0].title}
-              </h1>
-              <div className="animate-fade-in mb-6">
-                {slides[0].content}
-              </div>
-              {/* No Spline 3D Scene on mobile */}
-            </div>
-            {/* Spline 3D Scene for desktop only */}
-            <div className="hidden md:flex flex-1 items-center justify-center w-full h-80 md:h-[500px] z-10">
-              <SplineNoZoom scene="https://prod.spline.design/RVosVhwZ5879U8nN/scene.splinecode" />
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl mx-auto px-6">
+          {/* Text Content */}
+          <div className="flex-1 flex flex-col items-start justify-center md:pr-8 text-left w-full">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+              {slides[currentSlide]?.title}
+            </h1>
+            <div className="animate-fade-in mb-6">
+              {slides[currentSlide]?.content}
             </div>
           </div>
-        ) : currentSlide === 1 ? (
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl mx-auto px-6">
-            {/* Text Content */}
-            <div className="flex-1 flex flex-col items-start justify-center md:pr-8 text-left w-full">
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-                {slides[1].title}
-              </h1>
-              <div className="animate-fade-in mb-6">
-                {slides[1].content}
-              </div>
-              {/* No Spline 3D Scene on mobile */}
+          {/* 3D Models - always mounted, only one visible at a time */}
+          <div className="hidden md:flex flex-1 items-center justify-end w-full h-80 md:h-[500px] z-10 relative">
+            <div style={{position: 'absolute', inset: 0, opacity: currentSlide === 0 ? 1 : 0, pointerEvents: currentSlide === 0 ? 'auto' : 'none', transition: 'opacity 0.5s'}}>
+              <SplineNoZoom scene="https://prod.spline.design/RVosVhwZ5879U8nN/scene.splinecode" />
             </div>
-            {/* Spline 3D Scene for desktop only */}
-            <div className="hidden md:flex flex-1 items-center justify-center w-full h-80 md:h-[500px] z-10">
+            <div style={{position: 'absolute', inset: 0, opacity: currentSlide === 1 ? 1 : 0, pointerEvents: currentSlide === 1 ? 'auto' : 'none', transition: 'opacity 0.5s'}}>
               <SplineNoZoom scene="https://prod.spline.design/N9Rv8vuaharnxYpR/scene.splinecode" />
             </div>
           </div>
-        ) : (
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
-          <div className="min-h-[300px] flex flex-col justify-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-              {slides[currentSlide].title}
-            </h1>
-            <div className="animate-fade-in">
-              {slides[currentSlide].content}
-            </div>
-          </div>
         </div>
-        )}
         {/* Slider Navigation */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2">
           {slides.map((_, index) => (
