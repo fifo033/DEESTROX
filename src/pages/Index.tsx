@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Code, Smartphone, Zap, Bot, Palette, Phone, MapPin, Globe, ChevronDown, Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import HeroBackground from "@/components/HeroBackground";
 import Footer from "@/components/Footer";
+import Spline from '@splinetool/react-spline';
 
 const translations = {
   en: {
@@ -127,6 +128,25 @@ const languageOptions = [
     display: 'AR' 
   }
 ];
+
+function SplineNoZoom({ scene, zoom = 0.7 }) {
+  const containerRef = useRef(null);
+
+  function handleSplineLoad(spline) {
+    spline.setZoom(zoom);
+    if (containerRef.current) {
+      containerRef.current.addEventListener('wheel', e => {
+        if (e.cancelable) e.preventDefault();
+      }, { passive: false });
+    }
+  }
+
+  return (
+    <div ref={containerRef} style={{ width: '100%', height: '100%' }}>
+      <Spline scene={scene} onLoad={handleSplineLoad} />
+    </div>
+  );
+}
 
 const Index = () => {
   const [language, setLanguage] = useState<'en' | 'ru' | 'ar'>('en');
@@ -356,6 +376,41 @@ const Index = () => {
       >
         <HeroBackground slideIndex={currentSlide} />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-purple-900/50"></div>
+        {currentSlide === 0 ? (
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl mx-auto px-6">
+            {/* Text Content */}
+            <div className="flex-1 flex flex-col items-start justify-center md:pr-8 text-left w-full">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+                {slides[0].title}
+              </h1>
+              <div className="animate-fade-in mb-6">
+                {slides[0].content}
+              </div>
+              {/* No Spline 3D Scene on mobile */}
+            </div>
+            {/* Spline 3D Scene for desktop only */}
+            <div className="hidden md:flex flex-1 items-center justify-center w-full h-80 md:h-[500px] z-10">
+              <SplineNoZoom scene="https://prod.spline.design/RVosVhwZ5879U8nN/scene.splinecode" />
+            </div>
+          </div>
+        ) : currentSlide === 1 ? (
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl mx-auto px-6">
+            {/* Text Content */}
+            <div className="flex-1 flex flex-col items-start justify-center md:pr-8 text-left w-full">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+                {slides[1].title}
+              </h1>
+              <div className="animate-fade-in mb-6">
+                {slides[1].content}
+              </div>
+              {/* No Spline 3D Scene on mobile */}
+            </div>
+            {/* Spline 3D Scene for desktop only */}
+            <div className="hidden md:flex flex-1 items-center justify-center w-full h-80 md:h-[500px] z-10">
+              <SplineNoZoom scene="https://prod.spline.design/N9Rv8vuaharnxYpR/scene.splinecode" />
+            </div>
+          </div>
+        ) : (
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
           <div className="min-h-[300px] flex flex-col justify-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
@@ -366,7 +421,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-        
+        )}
         {/* Slider Navigation */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2">
           {slides.map((_, index) => (

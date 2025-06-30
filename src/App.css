@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Hide the Spline watermark badge */
+.spline-watermark {
+  display: none !important;
+}
+
+/* Try to hide any Spline badge with inline style containing the text */
+div[style*="Built with Spline"] {
+  display: none !important;
+}

@@ -209,6 +209,14 @@ const Projects = () => {
             <Link to="/" className="flex items-center space-x-2">
               <img src="/lovable-uploads/deestrox-logo.png" alt="Deestrox Logo" className="h-10 w-auto" />
             </Link>
+            {/* Go Home button for mobile */}
+            <Link
+              to="/"
+              className="md:hidden flex items-center text-white bg-blue-600 hover:bg-blue-700 rounded-full px-4 py-2 text-base font-semibold shadow-lg transition-colors ml-4"
+              style={{ minWidth: 0 }}
+            >
+              <ArrowLeft className="w-5 h-5 mr-2" /> {t.nav_home}
+            </Link>
             {/* Desktop nav */}
             <div className="hidden md:flex items-center space-x-4">
               <Link 
@@ -354,31 +362,31 @@ const Projects = () => {
 
       {/* Project Grid (compact, like services) */}
       <section className="pb-20">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="container mx-auto px-2 sm:px-4 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             <div
-              className="bg-slate-700 p-8 rounded-xl hover:bg-slate-600 transition-all duration-300 hover:scale-105 group cursor-pointer flex flex-col items-center"
+              className="bg-slate-700 p-6 sm:p-8 rounded-xl hover:bg-slate-600 transition-all duration-300 hover:scale-105 group cursor-pointer flex flex-col items-center w-full"
               onClick={() => { setModalOpen(true); setCurrentImageIndex(0); }}
             >
               <img
                 src={projectScreenshots[0].src}
                 alt="Project Screenshot 1"
-                className="w-20 h-20 object-cover rounded-lg mb-4 group-hover:scale-110 transition-transform duration-300"
+                className="w-24 h-24 object-cover rounded-lg mb-4 group-hover:scale-110 transition-transform duration-300"
               />
-              <h3 className="text-xl font-semibold text-white mb-2 text-center">Message Aggregator</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 text-center">Message Aggregator</h3>
               <p className="text-gray-300 text-center text-sm line-clamp-3">{generalDescription[language]}</p>
-            </div>
+              </div>
           </div>
         </div>
       </section>
 
       {/* Project Modal */}
       {modalOpen && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-white">Message Aggregator</h2>
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-2 sm:p-4">
+          <div className="bg-slate-800 rounded-xl w-full max-w-lg sm:max-w-2xl md:max-w-4xl max-h-[90vh] overflow-y-auto">
+            <div className="p-3 sm:p-6">
+              <div className="flex justify-between items-center mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-white">Message Aggregator</h2>
                 <button
                   onClick={() => setModalOpen(false)}
                   className="text-gray-400 hover:text-white"
@@ -386,37 +394,36 @@ const Projects = () => {
                   <X className="w-6 h-6" />
                 </button>
               </div>
-
               {/* Screenshot Carousel */}
-              <div className="relative mb-6">
+              <div className="relative mb-4 sm:mb-6">
                 <div className="aspect-video overflow-hidden rounded-lg flex items-center justify-center bg-slate-900">
                   <img
                     src={projectScreenshots[currentImageIndex].src}
                     alt={`Project Screenshot ${currentImageIndex + 1}`}
-                    className="max-h-[400px] w-auto object-contain cursor-zoom-in"
+                    className="max-h-[200px] sm:max-h-[400px] w-auto object-contain cursor-zoom-in"
                     onClick={() => setZoomed(true)}
                   />
                 </div>
                 {/* Carousel Controls */}
-                <div className="flex justify-between items-center mt-4">
-                  <button
+                <div className="flex justify-between items-center mt-2 sm:mt-4">
+                    <button
                     onClick={() => setCurrentImageIndex((currentImageIndex - 1 + projectScreenshots.length) % projectScreenshots.length)}
-                    className="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg"
-                  >
+                    className="bg-slate-700 hover:bg-slate-600 text-white px-3 sm:px-4 py-2 rounded-lg"
+                    >
                     <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <span className="text-gray-300">{currentImageIndex + 1} / {projectScreenshots.length}</span>
-                  <button
+                    </button>
+                  <span className="text-gray-300 text-sm sm:text-base">{currentImageIndex + 1} / {projectScreenshots.length}</span>
+                    <button
                     onClick={() => setCurrentImageIndex((currentImageIndex + 1) % projectScreenshots.length)}
-                    className="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg"
-                  >
+                    className="bg-slate-700 hover:bg-slate-600 text-white px-3 sm:px-4 py-2 rounded-lg"
+                    >
                     <ChevronRight className="w-5 h-5" />
-                  </button>
+                    </button>
                 </div>
                 {/* Explanation */}
-                <div className="mt-6 text-lg text-gray-200 text-center">
+                <div className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-200 text-center">
                   {projectScreenshots[currentImageIndex].explanations[language]}
-                </div>
+              </div>
               </div>
             </div>
           </div>
@@ -427,16 +434,16 @@ const Projects = () => {
       {zoomed && (
         <div className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center" onClick={() => setZoomed(false)}>
           <button
-            className="absolute top-6 right-6 text-white bg-slate-800/80 rounded-full p-2 hover:bg-slate-700 z-[101]"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white bg-slate-800/80 rounded-full p-2 hover:bg-slate-700 z-[101]"
             onClick={e => { e.stopPropagation(); setZoomed(false); }}
             aria-label="Close zoom"
           >
-            <X className="w-8 h-8" />
+            <X className="w-7 h-7 sm:w-8 sm:h-8" />
           </button>
           <img
             src={projectScreenshots[currentImageIndex].src}
             alt={`Zoomed Project Screenshot ${currentImageIndex + 1}`}
-            className="max-h-[90vh] max-w-[95vw] object-contain shadow-2xl border-4 border-slate-700 rounded-xl"
+            className="max-h-[70vh] sm:max-h-[90vh] max-w-[95vw] object-contain shadow-2xl border-4 border-slate-700 rounded-xl"
             onClick={e => e.stopPropagation()}
           />
         </div>
